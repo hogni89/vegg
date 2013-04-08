@@ -21,13 +21,19 @@
     <script>
     var i = 0;
         $(document).ready(function(){
-            setInterval("fetch();", 50);
+            heinta();
         });
         
-        function fetch() {
-                $.getJSON('lesFeed.php', function(json) {
-                    document.getElementById('feedSpot').innerHTML = json.ting;
-                });
+        function heinta() {
+            $.ajax({
+                url:"lesFeed.php",
+                
+                success:function(data) {
+                    if(data != "") {
+                        document.getElementById('feedSpot').innerHTML = data.ting;
+                    }
+                }, dataType: "json", complete: heinta, timeout: 30000
+            });
         }
     </script>
     

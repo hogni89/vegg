@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2013 at 03:13 PM
+-- Generation Time: Apr 08, 2013 at 08:27 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `rachmaninoff`
 --
+CREATE DATABASE `rachmaninoff` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `rachmaninoff`;
 
 -- --------------------------------------------------------
 
@@ -39,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `akk_feed` (
 --
 
 INSERT INTO `akk_feed` (`akk_feed_id`, `akk_innihald`, `akk_akkordir`, `akk_timestamp`) VALUES
-(1, '{"1":"1. Blóðið, sum rann, pínan, sum tú bar.<br>Av monnum svikin varð,<br>tín Gud fór frá tær har.<br>Segðist undan tíni trónu,<br>Sonur Guds við tornakrónu<br>hevur goldið alla heimsins skuld.","2":"Niðurlag: Gud, tín náði er størri,<br>enn orð kundu týtt,<br>Gud, tín náði, hon vísir mær virði mítt,<br>ein ófatandi prís eg kostaði tær.<br>Gud, tín náði er lív hjá mær."}', '{"1":{"2":{"1":5},"4":{"1":10},"5":{"1":0},"8":{"1":5},"12":{"1":10},"16":{"1":0},"20":{"1":5},"23":{"1":10},"25":{"1":0},"27":{"1":5},"30":{"1":2,"2":0},"36":{"1":0,"2":6},"32":{"1":10}},"2":{"4":{"1":5},"6":{"1":10},"9":{"1":7},"11":{"1":0},"15":{"1":5},"17":{"1":10},"19":{"1":7},"20":{"1":0},"23":{"1":5},"24":{"1":10},"26":{"1":5},"27":{"1":2,"2":0},"31":{"1":10},"33":{"1":0},"35":{"1":5}}}', 1365346544);
+(1, '{"1":"1. Lívsæla vissa: Jesus er mín!<br>Hann er mín vinur, kallar meg sín;<br>lívsæla vissa: Fullgjørt alt her!<br>Likam og sál, alt hansara er.","3":"2. Alt mátti fara – men alt eg vann,<br>æviga sólin fyri mær rann;<br>opið Guds ríki stendur, og mær<br>boðar hans orð um sæluna har."}', '{"1":{"18":{"1":2,"2":0},"3":{"1":1},"12":{"1":5,"2":5},"8":{"1":5},"27":{"1":0}},"3":{"4":{"1":2,"2":5},"15":{"1":2,"2":5},"18":{"1":2,"2":5}}}', 1365452554);
 
 -- --------------------------------------------------------
 
@@ -50,7 +52,7 @@ INSERT INTO `akk_feed` (`akk_feed_id`, `akk_innihald`, `akk_akkordir`, `akk_time
 CREATE TABLE IF NOT EXISTS `feed` (
   `feed_id` int(11) NOT NULL AUTO_INCREMENT,
   `feed_innihald` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `feed_eigari` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `feed_timestamp` int(100) NOT NULL,
   PRIMARY KEY (`feed_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -58,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `feed` (
 -- Dumping data for table `feed`
 --
 
-INSERT INTO `feed` (`feed_id`, `feed_innihald`, `feed_eigari`) VALUES
-(1, '', '');
+INSERT INTO `feed` (`feed_id`, `feed_innihald`, `feed_timestamp`) VALUES
+(1, 'Niðurlag:<br>Hann er mín gleði, songur mín hann,<br>meðan mín tunga røra seg kann;<br>ævigt hjá Gudi lova eg skal<br>honum, tí sál mín frelst varð og sæl.', 1365452554);
 
 -- --------------------------------------------------------
 

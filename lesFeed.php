@@ -13,9 +13,22 @@
             
         }*/
         
-        $urslit = $mysqli->query("SELECT feed_innihald FROM feed WHERE feed_id = 1");
+        $urslit = $mysqli->query("SELECT * FROM feed WHERE feed_id = 1");
         
         $row = $urslit->fetch_array(MYSQLI_ASSOC);
+        $lastmodif = $currentTid = $row['feed_timestamp'];
+        $byrjunarTid = time();
+        
+        while($currentTid <= $lastmodif) {
+            if(time() - $byrjunarTid > 20) {
+                die("");
+            }
+            usleep(10000);
+            clearstatcache();
+            $urslitTid = $mysqli->query("SELECT * FROM feed WHERE feed_id = 1");
+            $row = $urslitTid->fetch_array(MYSQLI_ASSOC);
+            $currentTid = $row['feed_timestamp'];
+        }
         
         $json = '{"ting" : "'.$row['feed_innihald'].'"}';
         

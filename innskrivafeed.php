@@ -14,7 +14,9 @@
             
             $INNIHALD = $mysqli->real_escape_string($INNIHALD);
             
-            if($mysqli->query("UPDATE feed SET feed_innihald = \"$INNIHALD\" WHERE feed_id = $FEED_ID")){
+            $timestamp = time();
+            
+            if($mysqli->query("UPDATE feed SET feed_innihald = \"$INNIHALD\", feed_timestamp = $timestamp WHERE feed_id = $FEED_ID")){
                 echo 1;
             }
             else {
