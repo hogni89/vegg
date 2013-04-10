@@ -27,7 +27,7 @@
         function heinta() {
             $.ajax({
                 url:"lesFeed.php",
-                
+                type:"post",
                 success:function(data) {
                     if(data != "") {
                         document.getElementById('feedSpot').innerHTML = data.ting;
